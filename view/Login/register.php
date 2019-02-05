@@ -1,11 +1,3 @@
-<!--<h1>Registreer</h1>-->
-<!---->
-<!--<form method="post" action="--><?//=URL?><!--Login/RegisterToDB">-->
-<!--    <p>Gebruikersnaam: <input type="text" name="UsrName"></p>-->
-<!--    <p>Wachtwoord: <input type="password" name="UsrPass"></p>-->
-<!--    <input type="submit" name="submit">-->
-<!--</form>-->
-
 <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="panel panel-info">
         <div class="panel-heading">
@@ -19,8 +11,6 @@
                     <p>Error:</p>
                     <span></span>
                 </div>
-
-
 
                 <div class="form-group">
                     <label for="UsrName" class="col-md-3 control-label">Gebruikersnaam</label>
