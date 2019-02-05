@@ -20,7 +20,7 @@ function uuid(){
 }
 
 function SaveUserToDatabase($data) {
-    $PassHash = password_hash($data[1], PASSWORD_DEFAULT); //Hash the password
+    $PassHash = hash('sha256', $data[1]); //Hash the password
     $UUID = uuid();
     $db = openDatabaseConnection();
     $sql = "INSERT INTO Gebruikers (`UsrName`, `UsrPass`, `UUID`) VALUES(:UsrName, :UsrPass, :UUID)";
@@ -32,4 +32,39 @@ function SaveUserToDatabase($data) {
 
     $db = null;
     header('Location:' . URL .  'home/index');
+}
+
+function LoginSessionCreate($data){ //Login a user
+    $PassHash = hash('sha256', $data[1]);
+    $UsrName = $data[0];
+    $login = CheckUsr($PassHash, $UsrName);
+    if ($login[0]["Allowed"] == "true"){ //Verify a password
+        session_start();
+        $_SESSION["type"] = 'gebruiker';
+        $_SESSION["UsrName"] = $data[0];
+        header('Location:' . URL . "Login/ingelogd");
+        return;
+    } else {
+        header('Location:' . URL . "Home/index");
+    }
+}
+
+function CheckUsr($pass, $UsrName){
+    $db = openDatabaseConnection();
+    $query = $db->prepare("
+            select
+            (CASE 
+                when (select g.UsrId from Gebruikers g where g.UsrName = :UsrName and g.UsrPass = :UsrPass) is not null then 'true'
+                else 'false'
+            END) as 'Allowed',
+            g.UsrID,
+            g.UsrName
+            from Gebruikers g where g.UsrName = :UsrName and g.UsrPass = :UsrPass
+            ");
+
+    $query->bindParam(':UsrName', $UsrName);
+    $query->bindParam(':UsrPass', $pass);
+
+    $query->execute();
+    return $result = $query->fetchAll();
 }
