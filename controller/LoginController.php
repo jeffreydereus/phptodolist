@@ -17,3 +17,13 @@ function RegisterToDB(){
     $data = array($_POST["UsrName"], $_POST["UsrPass"]);
     SaveUserToDatabase($data);
 }
+
+function LoginSession(){
+    $data = array($_POST['UsrName'], $_POST['UsrPass']);
+    LoginSessionCreate($data);
+}
+
+function ingelogd()
+{
+    render("Login/ingelogd");
+}
