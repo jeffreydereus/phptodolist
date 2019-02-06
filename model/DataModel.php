@@ -42,7 +42,7 @@ function LoginSessionCreate($data){ //Login a user
         session_start();
         $_SESSION["type"] = 'gebruiker';
         $_SESSION["UsrName"] = $data[0];
-        $_SESSION["UUID"] = $data[0];
+        $_SESSION["UUID"] = $login[0]["UUID"];
         header('Location:' . URL . "Login/ingelogd");
         return;
     } else {
@@ -59,7 +59,8 @@ function CheckUsr($pass, $UsrName){
                 else 'false'
             END) as 'Allowed',
             g.UsrID,
-            g.UsrName
+            g.UsrName,
+            g.UUID
             from Gebruikers g where g.UsrName = :UsrName and g.UsrPass = :UsrPass
             ");
 

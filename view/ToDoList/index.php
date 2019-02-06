@@ -10,7 +10,7 @@
 
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                <form id="loginform" class="form-horizontal" role="form" method="post" action="<?= URL ?>ToDoList/SaveList">
+                <form id="loginform" class="form-horizontal" role="form" method="post" action="<?= URL ?>ToDoList/SaveList/<?=$_SESSION['UUID']?>">
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
@@ -104,7 +104,3 @@
             i++
         }
     </script>
-<!--<div style="margin-bottom: 25px" class="input-group">-->
-<!--    <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>-->
-<!--    <input id="login-password" type="password" class="form-control" name="ListItemName" placeholder="Lijst Punt">-->
-<!--</div>-->
