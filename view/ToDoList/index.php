@@ -10,7 +10,7 @@
 
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                <form id="loginform" class="form-horizontal" role="form" method="post" action="<?= URL ?>Login/LoginSession">
+                <form id="loginform" class="form-horizontal" role="form" method="post" action="<?= URL ?>ToDoList/SaveList">
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
@@ -19,7 +19,17 @@
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-                        <input id="login-password" type="text" class="form-control" name="ListItemName" placeholder="Lijst Punt">
+                        <input id="login-password" type="text" class="form-control" name="ListItemName1" placeholder="Lijst Punt">
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+                        <input id="login-password" type="text" class="form-control" name="ListItemName2" placeholder="Lijst Punt">
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+                        <input id="login-password" type="text" class="form-control" name="ListItemName3" placeholder="Lijst Punt">
                     </div>
 
                     <div style="margin-top:10px; margin-right:5px;" class="form-group" id="replacethis">
@@ -29,17 +39,14 @@
                             <button id="btn-login" type="submit" class="btn btn-primary">Sla op</button>
                         </div>
                     </div>
-
                 </form>
-
-
-
             </div>
         </div>
     </div>
 </div>
+
     <script type='text/javascript'>
-        i = 0;
+        i = 4;
         function addFields(){
             // Container <div> where dynamic content will be placed
             var container = document.getElementById("loginform");
@@ -47,6 +54,7 @@
             var div = document.createElement("div");
             div.classList.add("input-group");
             div.style = "margin-bottom: 25px";
+            div.id = "div" + i;
             // div.id = "div" + i;
             container.appendChild(div);
 
@@ -56,7 +64,7 @@
             div.appendChild(span);
 
             var ii = document.createElement("i");
-            ii.classList.add("glypicon");
+            ii.classList.add("glyphicon");
             ii.classList.add("glyphicon-tag");
             span.appendChild(ii);
 
@@ -93,7 +101,6 @@
 
 
             //add line break
-            container.appendChild(document.createElement("br"));
             i++
         }
     </script>

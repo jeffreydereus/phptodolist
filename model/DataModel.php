@@ -42,6 +42,7 @@ function LoginSessionCreate($data){ //Login a user
         session_start();
         $_SESSION["type"] = 'gebruiker';
         $_SESSION["UsrName"] = $data[0];
+        $_SESSION["UUID"] = $data[0];
         header('Location:' . URL . "Login/ingelogd");
         return;
     } else {
