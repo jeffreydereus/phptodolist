@@ -105,11 +105,59 @@ function SaveEditedItemToDB($data){
 
     $query->execute();
 
-    $query2 = $db->prepare("SELECT ListID FROM ListItems WHERE ListItemID = :listitemid");
-    $query2->bindParam(":listitemid", $ListItemID, PDO::PARAM_INT);
-    $query2->execute();
     $db = null;
-    $query2->fetchAll();
 
     header('Location:' . URL . "ToDoList/lists/");
 }
+
+function getListInfo($ListID){
+    $db = openDatabaseConnection();
+
+    $query = $db->prepare("SELECT * FROM Lists WHERE ListID = :listid");
+    $query->bindParam(":listid", $ListID, PDO::PARAM_INT);
+    $query->execute();
+
+    $db = null;
+
+    return $query->fetchAll();
+}
+
+function SaveEditedListToDB($data){
+    $db = openDatabaseConnection();
+    $query = $db->prepare("UPDATE Lists SET ListName = :listname WHERE ListID = :ListID");
+
+    $query->bindparam(':ListID', $data[0], PDO::PARAM_INT);
+    $query->bindparam(':listname', $data[1], PDO::PARAM_STR);
+
+    $query->execute();
+    $db = null;
+    header('Location:' . URL . "ToDoList/lists/");
+}
+
+function deleteListFromDatabase($listID){
+    session_start();
+    $db = openDatabaseConnection();
+    $query = $db->prepare("SELECT UUID FROM Lists WHERE ListID = :listid");
+    $query->bindParam(":listid", $listID, PDO::PARAM_INT);
+    $query->execute();
+    $result = $query->fetchAll();
+
+    if ($_SESSION["UUID"] == $result[0]["UUID"]) {
+
+        $query2 = $db->prepare("DELETE FROM ListItems WHERE ListID = :ListID");
+        $query2->bindparam(':ListID', $listID, PDO::PARAM_INT);
+        $query2->execute();
+
+        $query3 = $db->prepare("DELETE FROM Lists WHERE ListID = :ListID");
+        $query3->bindparam(':ListID', $listID, PDO::PARAM_INT);
+        $query3->execute();
+
+        $db = null;
+        header('Location:' . URL . "ToDoList/lists");
+    } else {
+        $db = null;
+        header('Location:' . URL . "ToDoList/UnAuthorized");
+    }
+
+}
+

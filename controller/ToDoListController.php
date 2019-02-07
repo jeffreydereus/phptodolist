@@ -60,3 +60,22 @@ function SaveEditedItem($itemID){
     $data = array($itemID, $_POST["ListItemName"], $_POST["ListItemDescription"], $_POST["ListItemDuration"], $_POST["ListItemFinished"]);
     SaveEditedItemToDB($data);
 }
+
+function EditList($listid){
+    render("ToDoList/EditList", array(
+        'ListValues' => getListInfo($listid)
+    ));
+}
+
+function SaveEditedList($ListID){
+    $data = array($ListID, $_POST["ListName"]);
+    SaveEditedListToDB($data);
+}
+
+function DeleteList($listID){
+    deleteListFromDatabase($listID);
+}
+
+function UnAuthorized(){
+    render("ToDoList/UnAuthorized");
+}

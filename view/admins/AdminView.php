@@ -3,14 +3,14 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">Uw Lijstjes</th>
+            <th scope="col">Alle Lijstjes</th>
             <th scope="col">Edit</th>
             <th scope="col">Verwijder</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        $lists = getLists($_SESSION["UUID"]);
+        $lists = getAllLists($UUID);
 
         foreach ($lists as $Items => $values){
             echo '<tr>';

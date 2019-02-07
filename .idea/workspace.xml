@@ -2,16 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f18a5a7a-f7dd-4c47-9156-44275fe812bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/view/ToDoList/EditItem.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/ToDoList/Lists.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/ToDoList/ShowList.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/AdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/AdminModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/ToDoList/EditList.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/ToDoList/UnAuthorized.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/admins/AdminView.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/admins/EditRole.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/admins/adminUsrView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ToDoListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ToDoListController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/DataModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/DataModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/ToDoListModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ToDoListModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/ToDoList/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/ToDoList/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/home/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ToDoList/Lists.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/ToDoList/Lists.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/templates/header.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,10 +25,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/ToDoList/index.php">
+        <entry file="file://$PROJECT_DIR$/view/ToDoList/EditList.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="12" column="147" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="147" />
+            <state relative-caret-position="216">
+              <caret line="12" column="18" lean-forward="true" selection-end-line="15" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -34,44 +36,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/ToDoListController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="60" column="22" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="22" />
+            <state relative-caret-position="-606">
+              <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/ToDoList/EditItem.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="140" selection-start-line="1" selection-start-column="140" selection-end-line="1" selection-end-column="140" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/ToDoList/ShowList.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="21" column="99" selection-start-line="21" selection-start-column="99" selection-end-line="21" selection-end-column="99" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/ToDoListModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="111" column="24" lean-forward="true" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/ToDoList/Lists.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+            <state relative-caret-position="594">
+              <caret line="125" column="1" selection-start-line="125" selection-start-column="1" selection-end-line="133" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -79,17 +54,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/templates/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="38" column="76" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="76" />
+            <state relative-caret-position="468">
+              <caret line="50" column="64" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/home/index.php">
+        <entry file="file://$PROJECT_DIR$/view/admins/AdminView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="108">
+              <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/admins/adminUsrView.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/AdminController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -97,8 +90,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/DataModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1404">
-              <caret line="78" column="1" lean-forward="true" selection-start-line="78" selection-start-column="1" selection-end-line="78" selection-end-column="1" />
+            <state relative-caret-position="618">
+              <caret line="84" column="30" lean-forward="true" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/admins/EditRole.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="98" selection-start-line="3" selection-start-column="98" selection-end-line="3" selection-end-column="98" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/AdminModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="38" column="22" lean-forward="true" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -123,13 +134,20 @@
         <option value="$PROJECT_DIR$/view/ToDoList/index.php" />
         <option value="$PROJECT_DIR$/view/home/index.php" />
         <option value="$PROJECT_DIR$/controller/LoginController.php" />
-        <option value="$PROJECT_DIR$/model/DataModel.php" />
-        <option value="$PROJECT_DIR$/view/ToDoList/Lists.php" />
-        <option value="$PROJECT_DIR$/view/templates/header.php" />
         <option value="$PROJECT_DIR$/view/ToDoList/ShowList.php" />
-        <option value="$PROJECT_DIR$/controller/ToDoListController.php" />
         <option value="$PROJECT_DIR$/view/ToDoList/EditItem.php" />
+        <option value="$PROJECT_DIR$/view/ToDoList/EditList.php" />
+        <option value="$PROJECT_DIR$/view/ToDoList/Lists.php" />
+        <option value="$PROJECT_DIR$/view/ToDoList/UnAuthorized.php" />
+        <option value="$PROJECT_DIR$/controller/ToDoListController.php" />
         <option value="$PROJECT_DIR$/model/ToDoListModel.php" />
+        <option value="$PROJECT_DIR$/view/templates/header.php" />
+        <option value="$PROJECT_DIR$/view/admins/AdminView.php" />
+        <option value="$PROJECT_DIR$/controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/view/admins/EditRole.php" />
+        <option value="$PROJECT_DIR$/model/AdminModel.php" />
+        <option value="$PROJECT_DIR$/model/DataModel.php" />
+        <option value="$PROJECT_DIR$/view/admins/adminUsrView.php" />
       </list>
     </option>
   </component>
@@ -187,6 +205,12 @@
               <item name="phptodolist" type="b2602c69:ProjectViewProjectNode" />
               <item name="phptodolist" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phptodolist" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phptodolist" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="admins" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="phptodolist" type="b2602c69:ProjectViewProjectNode" />
@@ -256,12 +280,12 @@
       <workItem from="1549289337955" duration="633000" />
       <workItem from="1549357161959" duration="15432000" />
       <workItem from="1549446413921" duration="9327000" />
-      <workItem from="1549529731323" duration="9851000" />
+      <workItem from="1549529731323" duration="15027000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41069000" />
+    <option name="totallyTimeSpent" value="46245000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="2576" height="1056" extended-state="6" />
@@ -354,13 +378,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/DataModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1404">
-          <caret line="78" column="1" lean-forward="true" selection-start-line="78" selection-start-column="1" selection-end-line="78" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/ErrorController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -371,13 +388,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/home/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/ToDoList/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -385,48 +395,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/templates/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="38" column="76" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/ToDoList/Lists.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/route.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ToDoListController.php">
+    <entry file="file://$PROJECT_DIR$/view/home/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="60" column="22" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/ToDoList/EditItem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="140" selection-start-line="1" selection-start-column="140" selection-end-line="1" selection-end-column="140" />
+        <state relative-caret-position="36">
+          <caret line="2" column="7" selection-end-line="7" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/ToDoList/ShowList.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
+        <state relative-caret-position="378">
           <caret line="21" column="99" selection-start-line="21" selection-start-column="99" selection-end-line="21" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/ToDoList/EditItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/ToDoList/UnAuthorized.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="127" lean-forward="true" selection-start-line="2" selection-start-column="127" selection-end-line="2" selection-end-column="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/ToDoList/Lists.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/ToDoList/EditList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="18" lean-forward="true" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ToDoListController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-606">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/ToDoListModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="111" column="24" lean-forward="true" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+        <state relative-caret-position="594">
+          <caret line="125" column="1" selection-start-line="125" selection-start-column="1" selection-end-line="133" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/templates/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="50" column="64" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/admins/AdminView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/admins/EditRole.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="98" selection-start-line="3" selection-start-column="98" selection-end-line="3" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/DataModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="84" column="30" lean-forward="true" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/AdminModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="38" column="22" lean-forward="true" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/admins/adminUsrView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
         </state>
       </provider>
     </entry>

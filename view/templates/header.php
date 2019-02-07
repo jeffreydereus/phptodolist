@@ -32,7 +32,7 @@
         <div id="navbar" class="navbar-collapse collapse">
 
             <?php
-            if ($_SESSION["Authorized"] == true) {
+            if ($_SESSION["Role"] == "Gebruiker") {
 
                 echo "<ul class='nav navbar-nav' >";
                 echo '<li><a href=' . URL . 'Home/index > Home</a ></li >';
@@ -41,13 +41,26 @@
                 echo '<li><a href="#"></a ></li >';
                 echo '</ul>';
                 echo '<ul class="nav navbar-nav navbar-right">';
-                echo '<li><a href=' . URL . 'Login/logOut>Log uit</a></li>';
-            } else {
+                echo '<li><a href=' . URL . 'Login/logOut>Log uit</a></li></ul>';
+            }
+            else if ($_SESSION["Role"] == "Admin") {
+                echo "<ul class='nav navbar-nav' >";
+                echo '<li><a href=' . URL . 'Home/index > Home</a ></li >';
+                echo '<li><a href=' . URL . 'ToDoList/index > Maak To Do Lijst Aan </a ></li >';
+                echo '<li><a href=' . URL . 'ToDoList/lists> Uw lijstjes </a ></li >';
+                echo '<li><a href=' . URL . 'Admin/AdminUserView> Alle Gebruikers</a ></li >';
+                echo '<li><a href="#"></a ></li >';
+                echo '</ul>';
+                echo '<ul class="nav navbar-nav navbar-right">';
+                echo '<li><a href=' . URL . 'Login/logOut>Log uit</a></li></ul>';
+            }
+            else {
                 echo '<ul class="nav navbar-nav navbar-right">';
                 echo '<li><a href=' . URL . 'Login/index>Log in</a></li>';
                 echo '<li><a href=' . URL . 'Login/register>Register</a></li>';
                 echo '</ul>';
             }
+
             ?>
 
         </div><!--/.nav-collapse -->
