@@ -30,15 +30,26 @@
             <a class="navbar-brand" href="#">To Do List</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="<?=URL?>Home/index">Home</a></li>
-                <li><a href="<?=URL?>ToDoList/index">Maak To Do List Aan</a></li>
-                <li><a href="#"></a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?= URL?>Login/index">Log in</a></li>
-                <li><a href="<?= URL ?>Login/register">Register</a></li>
-            </ul>
+
+            <?php
+            if ($_SESSION["Authorized"] == true) {
+
+                echo "<ul class='nav navbar-nav' >";
+                echo '<li><a href=' . URL . 'Home/index > Home</a ></li >';
+                echo '<li><a href=' . URL . 'ToDoList/index > Maak To Do Lijst Aan </a ></li >';
+                echo '<li><a href=' . URL . 'ToDoList/lists> Uw lijstjes </a ></li >';
+                echo '<li><a href="#"></a ></li >';
+                echo '</ul>';
+                echo '<ul class="nav navbar-nav navbar-right">';
+                echo '<li><a href=' . URL . 'Login/logOut>Log uit</a></li>';
+            } else {
+                echo '<ul class="nav navbar-nav navbar-right">';
+                echo '<li><a href=' . URL . 'Login/index>Log in</a></li>';
+                echo '<li><a href=' . URL . 'Login/register>Register</a></li>';
+                echo '</ul>';
+            }
+            ?>
+
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>

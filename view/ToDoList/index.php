@@ -20,16 +20,22 @@
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
                         <input id="login-password" type="text" class="form-control" name="ListItemName1" placeholder="Lijst Punt">
+                        <input id="login-password" type="text" class="form-control" name="ListItemDescription1" placeholder="Beschrijving">
+                        <input id="Duration" type="number" class="form-control" name="ListItemDuration1" placeholder="Hoe lang duurt het? (In minuten)">
                     </div>
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
                         <input id="login-password" type="text" class="form-control" name="ListItemName2" placeholder="Lijst Punt">
+                        <input id="login-password" type="text" class="form-control" name="ListItemDescription2" placeholder="Beschrijving">
+                        <input id="Duration" type="number" class="form-control" name="ListItemDuration2" placeholder="Hoe lang duurt het? (In minuten)">
                     </div>
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
                         <input id="login-password" type="text" class="form-control" name="ListItemName3" placeholder="Lijst Punt">
+                        <input id="login-password" type="text" class="form-control" name="ListItemDescription3" placeholder="Beschrijving">
+                        <input id="Duration" type="number" class="form-control" name="ListItemDuration3" placeholder="Hoe lang duurt het? (In minuten)">
                     </div>
 
                     <div style="margin-top:10px; margin-right:5px;" class="form-group" id="replacethis">
@@ -75,6 +81,20 @@
             input.placeholder = "Lijst Punt";
             input.id = "login-password";
             div.appendChild(input);
+
+            var DescInput = document.createElement("input");
+            DescInput.name = "ListItemDescription" + i;
+            DescInput.type = "text";
+            DescInput.classList.add("form-control");
+            DescInput.placeholder = "Beschrijving";
+            div.appendChild(DescInput);
+
+            var DuraInput = document.createElement("input");
+            DuraInput.name = "ListItemDuration" + i;
+            DuraInput.type = "number";
+            DuraInput.classList.add("form-control");
+            DuraInput.placeholder = "Hoe lang duurt het? (In minuten)";
+            div.appendChild(DuraInput);
 
             //replace the save button
             container.removeChild(document.getElementById("replacethis"));

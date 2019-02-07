@@ -43,6 +43,7 @@ function LoginSessionCreate($data){ //Login a user
         $_SESSION["type"] = 'gebruiker';
         $_SESSION["UsrName"] = $data[0];
         $_SESSION["UUID"] = $login[0]["UUID"];
+        $_SESSION["Authorized"] = true;
         header('Location:' . URL . "Login/ingelogd");
         return;
     } else {
@@ -69,4 +70,10 @@ function CheckUsr($pass, $UsrName){
 
     $query->execute();
     return $result = $query->fetchAll();
+}
+
+function LoginSessionDestroy(){
+    session_start();
+    session_destroy();
+    header('Location:' . URL . "Home/index");
 }
