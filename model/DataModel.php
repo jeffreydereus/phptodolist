@@ -29,7 +29,9 @@ function SaveUserToDatabase($data) {
     $query->bindParam(':UsrPass', $PassHash, PDO::PARAM_STR);
     $query->bindParam(':UUID', $UUID, PDO::PARAM_STR);
     $query->execute();
-
+    $query2 = $db->prepare("INSERT INTO Roles (`UUID`) VALUES(:UUID)");
+    $query2->bindParam(':UUID', $UUID, PDO::PARAM_STR);
+    $query2->execute();
     $db = null;
     header('Location:' . URL .  'home/index');
 }
@@ -38,10 +40,13 @@ function LoginSessionCreate($data){ //Login a user
     $PassHash = hash('sha256', $data[1]);
     $UsrName = $data[0];
     $login = CheckUsr($PassHash, $UsrName);
+    $role = getRole($login[0]["UUID"]);
     if ($login[0]["Allowed"] == "true"){ //Verify a password
         session_start();
         $_SESSION["type"] = 'gebruiker';
         $_SESSION["UsrName"] = $data[0];
+        $_SESSION["UUID"] = $login[0]["UUID"];
+        $_SESSION["Role"] = $role[0]["RoleName"];
         header('Location:' . URL . "Login/ingelogd");
         return;
     } else {
@@ -58,7 +63,8 @@ function CheckUsr($pass, $UsrName){
                 else 'false'
             END) as 'Allowed',
             g.UsrID,
-            g.UsrName
+            g.UsrName,
+            g.UUID
             from Gebruikers g where g.UsrName = :UsrName and g.UsrPass = :UsrPass
             ");
 
@@ -67,4 +73,20 @@ function CheckUsr($pass, $UsrName){
 
     $query->execute();
     return $result = $query->fetchAll();
+}
+
+function getRole($UUID){
+    $db = openDatabaseConnection();
+    $query = $db->prepare("SELECT UUID, RoleName FROM Roles WHERE UUID = :UUID");
+    $query->bindParam(":UUID", $UUID, PDO::PARAM_INT);
+    $query->execute();
+
+    $db = null;
+    return $query->fetchAll();
+}
+
+function LoginSessionDestroy(){
+    session_start();
+    session_destroy();
+    header('Location:' . URL . "Home/index");
 }

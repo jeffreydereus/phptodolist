@@ -27,3 +27,7 @@ function ingelogd()
 {
     render("Login/ingelogd");
 }
+
+function logOut(){
+    LoginSessionDestroy();
+}
