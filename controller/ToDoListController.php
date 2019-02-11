@@ -46,8 +46,8 @@ function SaveItemToList($ListID){
     SaveItemToListInDB($data);
 }
 
-function deleteListItem($ListItemID){
-    deleteListItemFromDB($ListItemID);
+function deleteListItem($ListItemID, $ListID){
+    deleteListItemFromDB($ListItemID, $ListID);
 }
 
 function EditListItem($ListItemID){

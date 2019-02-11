@@ -14,7 +14,7 @@ function register()
 }
 
 function RegisterToDB(){
-    $data = array($_POST["UsrName"], $_POST["UsrPass"]);
+    $data = array($_POST["UserEmail"], $_POST["UsrName"], $_POST["UsrPass"]);
     SaveUserToDatabase($data);
 }
 
@@ -23,9 +23,11 @@ function LoginSession(){
     LoginSessionCreate($data);
 }
 
-function ingelogd()
+function ingelogd($feedback)
 {
-    render("Login/ingelogd");
+    render("Login/ingelogd", array(
+        'feedback' => $feedback
+    ));
 }
 
 function logOut(){

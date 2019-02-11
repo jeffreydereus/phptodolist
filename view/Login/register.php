@@ -11,17 +11,22 @@
                     <p>Error:</p>
                     <span></span>
                 </div>
-
+                <div class="form-group">
+                    <label for="UsrPass" class="col-md-3 control-label">Email</label>
+                    <div class="col-md-9">
+                        <input type="email" class="form-control" name="UserEmail" placeholder="Uw Email" required>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="UsrName" class="col-md-3 control-label">Gebruikersnaam</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="UsrName" placeholder="Gebruikersnaam">
+                        <input type="text" class="form-control" name="UsrName" placeholder="Gebruikersnaam" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="UsrPass" class="col-md-3 control-label">Wachtwoord</label>
                     <div class="col-md-9">
-                        <input type="password" class="form-control" name="UsrPass" placeholder="Wachtwoord">
+                        <input type="password" class="form-control" name="UsrPass" placeholder="Wachtwoord" required min="6" max="32">
                     </div>
                 </div>
 

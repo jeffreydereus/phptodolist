@@ -66,10 +66,10 @@ function SaveItemToListInDB($data)
 
     $query->execute();
     $db = null;
-    header('Location:' . URL . "ToDoList/ShowList");
+    header('Location:' . URL . "ToDoList/ShowList/" . $data[0]);
 }
 
-function deleteListItemFromDB($data){
+function deleteListItemFromDB($data, $ListID){
     $db = openDatabaseConnection();
     $query = $db->prepare("DELETE FROM ListItems WHERE ListItemID = :ListItemID");
 
@@ -78,7 +78,7 @@ function deleteListItemFromDB($data){
     $query->execute();
 
     $db = null;
-    header('Location:' . URL . "ToDoList/ShowList");
+    header('Location:' . URL . "ToDoList/ShowList/" . $ListID);
 }
 
 function getListItem($ListItemID){

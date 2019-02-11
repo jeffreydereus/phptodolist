@@ -6,7 +6,7 @@
                 <a href="#" id="filldetails" onclick="addFields()">Voeg veld toe</a>
             </div>
 
-            <div style="padding-top:30px" class="panel-body" >
+            <div style="padding-top:30px" class="panel-body">
 
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
@@ -14,28 +14,28 @@
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-                        <input id="login-username" type="text" class="form-control" name="ListName" value="" placeholder="Lijst Naam">
+                        <input id="listName" type="text" class="form-control" name="ListName" value="" placeholder="Lijst Naam" required>
                     </div>
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-                        <input id="login-password" type="text" class="form-control" name="ListItemName1" placeholder="Lijst Punt">
-                        <input id="login-password" type="text" class="form-control" name="ListItemDescription1" placeholder="Beschrijving">
-                        <input id="Duration" type="number" class="form-control" name="ListItemDuration1" placeholder="Hoe lang duurt het? (In minuten)">
+                        <input id="listitem" type="text" class="form-control" name="ListItemName1" placeholder="Lijst Punt" required>
+                        <input id="desc" type="text" class="form-control" name="ListItemDescription1" placeholder="Beschrijving" required>
+                        <input id="Duration" type="number" class="form-control" name="ListItemDuration1" placeholder="Hoe lang duurt het? (In minuten)" required>
                     </div>
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-                        <input id="login-password" type="text" class="form-control" name="ListItemName2" placeholder="Lijst Punt">
-                        <input id="login-password" type="text" class="form-control" name="ListItemDescription2" placeholder="Beschrijving">
-                        <input id="Duration" type="number" class="form-control" name="ListItemDuration2" placeholder="Hoe lang duurt het? (In minuten)">
+                        <input id="listitem2" type="text" class="form-control" name="ListItemName2" placeholder="Lijst Punt">
+                        <input id="desc2" type="text" class="form-control" name="ListItemDescription2" placeholder="Beschrijving">
+                        <input id="Duration2" type="number" class="form-control" name="ListItemDuration2" placeholder="Hoe lang duurt het? (In minuten)">
                     </div>
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-                        <input id="login-password" type="text" class="form-control" name="ListItemName3" placeholder="Lijst Punt">
-                        <input id="login-password" type="text" class="form-control" name="ListItemDescription3" placeholder="Beschrijving">
-                        <input id="Duration" type="number" class="form-control" name="ListItemDuration3" placeholder="Hoe lang duurt het? (In minuten)">
+                        <input id="listitem3" type="text" class="form-control" name="ListItemName3" placeholder="Lijst Punt">
+                        <input id="desc3" type="text" class="form-control" name="ListItemDescription3" placeholder="Beschrijving">
+                        <input id="Duration3" type="number" class="form-control" name="ListItemDuration3" placeholder="Hoe lang duurt het? (In minuten)">
                     </div>
 
                     <div style="margin-top:10px; margin-right:5px;" class="form-group" id="replacethis">
