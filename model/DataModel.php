@@ -62,7 +62,7 @@ function CheckUsr($pass, $UsrName){
     $query = $db->prepare("
             select
             (CASE 
-                when (select g.UsrId from Gebruikers g where g.UsrPass = :UsrPass AND (g.UsrName = :UsrName OR g.UsrEmail = :UsrName) is not null then 'true'
+                when (SELECT g.UsrId FROM Gebruikers g WHERE (g.UsrName = :UsrName OR g.UsrEmail = :UsrName) AND g.UsrPass = :UsrPass) is not null then 'true'
                 else 'false'
             END) as 'Allowed',
             g.UsrID,
@@ -72,11 +72,11 @@ function CheckUsr($pass, $UsrName){
             c.ColorName
             from Gebruikers g
             left join Colors c on c.Id = g.UsrColor
-            where g.UsrName = :UsrName and g.UsrPass = :UsrPass
+            where (g.UsrName = :UsrName OR g.UsrEmail = :UsrName) and g.UsrPass = :UsrPass
             ");
 
-    $query->bindParam(':UsrName', $UsrName);
-    $query->bindParam(':UsrPass', $pass);
+    $query->bindValue(':UsrName', $UsrName, PDO::PARAM_STR);
+    $query->bindValue(':UsrPass', $pass, PDO::PARAM_STR);
 
     $query->execute();
     return $result = $query->fetchAll();

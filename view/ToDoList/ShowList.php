@@ -15,13 +15,13 @@
         <?php
 
         foreach ($VisibleList as $Items => $values){
-            echo '<tr>';
+            echo '<tr id="'. $values["ListItemID"] .'">';
             echo '<td scope="row">' . $values["ItemName"]  . '</a></td>';
             echo '<td scope="row">' . $values["ItemDescription"]  . '</a></td>';
             echo '<td scope="row">' . $values["Duration"]  . ' Min</a></td>';
             echo '<td scope="row">' . $values["ItemFinished"]  . '</a></td>';
             echo '<td scope="row"><a href=' .URL . 'ToDoList/EditListItem/' . $values["ListItemID"].  '>'  . 'Edit</a></td>';
-            echo '<td scope="row"><a href=' .URL . 'ToDoList/deleteListItem/'. $values["ListItemID"] . '/' . $values["ListID"] . '>'  . 'Verwijder</a></td>';
+            echo '<td scope="row"><a href="?remove" type="submit" class="button" name="remove">Verwijder</td>';
             echo '</tr>';
         }
 
@@ -45,9 +45,37 @@
             </div>
         </div>
     </form>
+
+    <?php
+    if($_GET){
+        if(isset($_GET['remove'])){
+            deleteitem($values);
+        }
+    }
+
+    function deleteitem($values)
+    {
+        header_remove("Location");
+        deleteListItem($values["ListItemID"], $values["ListID"]);
+    }
+
+    if($_SESSION["msg"] != ""){
+        echo '<div class="alert alert-success alert-dismissable" id="flash-msg">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            <h4><i class="icon fa fa-check"></i>'. $_SESSION["msg"] .'</h4>
+            </div>';
+
+        echo '<script>$(document).ready(function () {
+    $("#flash-msg").delay(2000).fadeOut("slow");
+    });</script>';
+        $_SESSION["msg"] = "";
+    }
+
+    ?>
 </div>
 
 <script>
+
     var table = $('table');
 
     $('#finished')

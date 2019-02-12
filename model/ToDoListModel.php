@@ -78,6 +78,7 @@ function deleteListItemFromDB($data, $ListID){
     $query->execute();
 
     $db = null;
+//    $_SESSION["msg"] = "Gelukt, Taak verwijderd";
     header('Location:' . URL . "ToDoList/ShowList/" . $ListID);
 }
 
