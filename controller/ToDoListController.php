@@ -124,3 +124,29 @@ function DeleteList($listID){
 function UnAuthorized(){
     render("ToDoList/UnAuthorized");
 }
+
+function SeeVisitors($ListID){
+    render("ToDoList/SeeVisitors", array(
+        "Visitors" => GetVisitors($ListID),
+        "ListID" => $ListID
+    ));
+}
+
+function AddVisitors($ListID){
+    session_start();
+    $data = array($_SESSION["UUID"], GetVisitorUUID($_POST["VisitorUsrName"])[0]["UUID"], $_POST["VisitorUsrName"], $ListID, GetListName($ListID)[0]["ListName"]);
+    AddVisitor($data);
+    $_SESSION["msg"] = "Gelukt! " . $_POST["VisitorUsrName"] . " is toegevoegd.";
+    header("Location:" . URL . "ToDoList/SeeVisitors/" . $ListID);
+}
+
+function GetSharedLists($UUID){
+    return GetSharedListFromDB($UUID);
+}
+
+function RemoveVisitor($VUUID, $ListID, $VisName){
+    session_start();
+    RemoveVisitorInDB($VUUID);
+    $_SESSION["msg"] = "Gelukt! " . $VisName . " is verwijderd.";
+    header("Location:" . URL . "ToDoList/SeeVisitors/" . $ListID);
+}

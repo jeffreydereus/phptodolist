@@ -45,7 +45,7 @@ if ($_SESSION["Color"] == "White") {
 
             <?php if ($_SESSION["Role"] == "Gebruiker"):?>
 
-                <ul class='nav navbar-nav' >";
+                <ul class='nav navbar-nav' >
                     <li><a href='<?=URL?>Home/index'> Home</a ></li >
                     <li><a href='<?=URL?>ToDoList/index'> Maak To Do Lijst Aan </a ></li >
                     <li><a href='<?=URL?>ToDoList/lists'> Uw lijstjes</a ></li >

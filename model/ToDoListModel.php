@@ -162,3 +162,61 @@ function deleteListFromDatabase($listID){
 
 }
 
+function GetVisitors($ListID){
+    session_start();
+    $db = openDatabaseConnection();
+    $query = $db->prepare("SELECT * FROM SharedLists WHERE InitialCreatorID = :ICI AND SharedListID = :SLI");
+    $query->bindParam(":ICI", $_SESSION["UUID"]);
+    $query->bindParam(":SLI", $ListID);
+    $query->execute();
+    $db = null;
+    return $query->fetchAll();
+}
+
+function AddVisitor($data){
+    $db = openDatabaseConnection();
+    $query = $db->prepare("INSERT INTO SharedLists (InitialCreatorID, VisitorID, VisitorEmail, SharedListID, ListName) VALUES (:ICI, :VI, :VE, :SLI, :LN)");
+    $query->bindParam(":ICI", $data[0]);
+    $query->bindParam(":VI", $data[1]);
+    $query->bindParam(":VE", $data[2]);
+    $query->bindParam(":SLI", $data[3]);
+    $query->bindParam(":LN", $data[4]);
+    $query->execute();
+    $db = null;
+}
+
+function GetVisitorUUID($UsrName){
+    $db = openDatabaseConnection();
+    $query = $db->prepare("SELECT UUID FROM Gebruikers WHERE UsrEmail = :email");
+    $query->bindParam(":email", $UsrName);
+    $query->execute();
+    $db = null;
+    return $query->fetchAll();
+}
+
+function GetListName($ListID){
+    $db = openDatabaseConnection();
+    $query = $db->prepare("SELECT ListName FROM Lists WHERE ListID = :ListID");
+    $query->bindParam(":ListID", $ListID);
+    $query->execute();
+    $db = null;
+    return $query->fetchAll();
+}
+
+function GetSharedListFromDB($UUID){
+    $db = openDatabaseConnection();
+    $query = $db->prepare("SELECT ListName, SharedListID FROM SharedLists WHERE VisitorID = :VI");
+    $query->bindParam(":VI", $UUID);
+    $query->execute();
+    $db = null;
+    return $query->fetchAll();
+}
+
+function RemoveVisitorInDB($VUUID){
+    $db = openDatabaseConnection();
+    $query = $db->prepare("DELETE FROM SharedLists WHERE VisitorID = :VI");
+    $query->bindParam(":VI", $VUUID);
+    $query->execute();
+    $db = null;
+    return $query->fetchAll();
+}
