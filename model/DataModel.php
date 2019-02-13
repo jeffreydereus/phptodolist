@@ -20,16 +20,59 @@ function uuid(){
 }
 
 function SaveUserToDatabase($data) {
-    $PassHash = password_hash($data[1], PASSWORD_DEFAULT); //Hash the password
+    $PassHash = hash('sha256', $data[2]); //Hash the password
     $UUID = uuid();
     $db = openDatabaseConnection();
-    $sql = "INSERT INTO Gebruikers (`UsrName`, `UsrPass`, `UUID`) VALUES(:UsrName, :UsrPass, :UUID)";
+    $sql = "INSERT INTO Gebruikers (UsrEmail, `UsrName`, `UsrPass`, `UUID`) VALUES(:UsrEmail, :UsrName, :UsrPass, :UUID)";
     $query = $db->prepare($sql);
-    $query->bindParam(':UsrName', $data[0], PDO::PARAM_STR);
+    $query->bindParam(':UsrEmail', $data[0], PDO::PARAM_STR);
+    $query->bindParam(':UsrName', $data[1], PDO::PARAM_STR);
     $query->bindParam(':UsrPass', $PassHash, PDO::PARAM_STR);
     $query->bindParam(':UUID', $UUID, PDO::PARAM_STR);
     $query->execute();
+    $query2 = $db->prepare("INSERT INTO Roles (`UUID`) VALUES(:UUID)");
+    $query2->bindParam(':UUID', $UUID, PDO::PARAM_STR);
+    $query2->execute();
+    $db = null;
+}
+
+function CheckUsr($pass, $UsrName){
+
+    $db = openDatabaseConnection();
+    $query = $db->prepare("
+            select
+            (CASE 
+                when (SELECT g.UsrId FROM Gebruikers g WHERE (g.UsrName = :UsrName OR g.UsrEmail = :UsrName) AND g.UsrPass = :UsrPass) is not null then 'true'
+                else 'false'
+            END) as 'Allowed',
+            g.UsrID,
+            g.UsrName,
+            g.UsrEmail,
+            g.UUID,
+            c.ColorName
+            from Gebruikers g
+            left join Colors c on c.Id = g.UsrColor
+            where (g.UsrName = :UsrName OR g.UsrEmail = :UsrName) and g.UsrPass = :UsrPass
+            ");
+
+    $query->bindValue(':UsrName', $UsrName, PDO::PARAM_STR);
+    $query->bindValue(':UsrPass', $pass, PDO::PARAM_STR);
+
+    $query->execute();
+    return $result = $query->fetchAll();
+}
+
+function getRole($UUID){
+    $db = openDatabaseConnection();
+    $query = $db->prepare("SELECT UUID, RoleName FROM Roles WHERE UUID = :UUID");
+    $query->bindParam(":UUID", $UUID, PDO::PARAM_INT);
+    $query->execute();
 
     $db = null;
-    header('Location:' . URL .  'home/index');
+    return $query->fetchAll();
+}
+
+function LoginSessionDestroy(){
+    session_start();
+    session_destroy();
 }
