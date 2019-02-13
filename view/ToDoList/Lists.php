@@ -14,7 +14,7 @@
 
         foreach ($lists as $Items => $values){
             echo '<tr>';
-            echo '<th scope="row"><a href=' .URL . 'ToDoList/ShowList/' . $values["ListID"] . '>' . $values["ListName"]  . '</a></th>';
+            echo '<th scope="row"><a href=' .URL . 'ToDoList/ShowList/' . $values["ListID"] . '>' . $values["ListName"]  . ' </a><span class="badge">' . $values["ListItemsCount"] . '</span></th>';
             echo '<th scope="row"><a href=' .URL . 'ToDoList/EditList/' . $values["ListID"] . '>' . 'Edit</a></th>';
             echo '<th scope="row"><a href=' .URL . 'ToDoList/DeleteList/' . $values["ListID"] . '>' . 'Verwijder</a></th>';
             echo '</tr>';

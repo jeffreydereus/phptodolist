@@ -38,7 +38,6 @@ function SaveChangedRoleToDB($data){
 
     $query->execute();
     $db = null;
-    header('Location:' . URL . "admin/AdminUserView");
 }
 
 function GetUserRole($UUID){
