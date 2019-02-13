@@ -24,5 +24,4 @@ function SaveConfigToDB($data){
     $query->execute();
     $db = null;
 
-    header('Location:' . URL . "Home/index");
 }

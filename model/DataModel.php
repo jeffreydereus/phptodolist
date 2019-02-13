@@ -34,26 +34,6 @@ function SaveUserToDatabase($data) {
     $query2->bindParam(':UUID', $UUID, PDO::PARAM_STR);
     $query2->execute();
     $db = null;
-    header('Location:' . URL .  'Login/ingelogd/aangemaakt');
-}
-
-function LoginSessionCreate($data){ //Login a user
-    $PassHash = hash('sha256', $data[1]);
-    $UsrName = $data[0];
-    $login = CheckUsr($PassHash, $UsrName);
-    $role = getRole($login[0]["UUID"]);
-    if ($login[0]["Allowed"] == "true"){ //Verify a password
-        session_start();
-        $_SESSION["type"] = 'gebruiker';
-        $_SESSION["UsrName"] = $data[0];
-        $_SESSION["UUID"] = $login[0]["UUID"];
-        $_SESSION["Role"] = $role[0]["RoleName"];
-        $_SESSION["Color"] = $login[0]["ColorName"];
-        header('Location:' . URL . "Login/ingelogd/succes");
-        return;
-    } else {
-        header('Location:' . URL . "Login/ingelogd/oeps");
-    }
 }
 
 function CheckUsr($pass, $UsrName){
@@ -95,5 +75,4 @@ function getRole($UUID){
 function LoginSessionDestroy(){
     session_start();
     session_destroy();
-    header('Location:' . URL . "Home/index");
 }

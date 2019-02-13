@@ -16,24 +16,28 @@ function SaveListToDatabase($UUID, $data){
     $query2->execute();
     $listId = $query2->fetchAll();
 
-    for($i = 0; $i < count($data); $i++){
+    for($i = 0; $i < count($data); $i++) {
         $query3 = $db->prepare("insert into ListItems(ListId,ItemName,ItemDescription,Duration) values(:listId,:name,:ListDesc,:ListDur)");
 
-        $query3-> bindparam(':listId', $listId[0]["ListID"]);
-        $query3-> bindparam(':name', $data[$i], PDO::PARAM_STR);
+        $query3->bindparam(':listId', $listId[0]["ListID"]);
+        $query3->bindparam(':name', $data[$i], PDO::PARAM_STR);
         $i++;
-        $query3-> bindparam(':ListDesc', $data[$i], PDO::PARAM_STR);
+        $query3->bindparam(':ListDesc', $data[$i], PDO::PARAM_STR);
         $i++;
-        $query3-> bindparam(':ListDur', $data[$i], PDO::PARAM_INT);
+        $query3->bindparam(':ListDur', $data[$i], PDO::PARAM_INT);
 
         $query3->execute();
     }
-    header('Location:' . URL . "ToDoList/Lists");
 }
 
 function getLists($UUID){
     $db = openDatabaseConnection();
-    $query = $db->prepare("SELECT * FROM Lists WHERE UUID = :uid");
+    $query = $db->prepare("SELECT 
+            L.ListID,
+            L.ListName,
+            (SELECT count(i.ListItemID) from ListItems i where i.ListID = L.ListID) as 'ListItemsCount' 
+            FROM Lists L 
+            where L.UUID = :uid");
     $query->bindParam(":uid", $UUID, PDO::PARAM_STR);
     $query->execute();
     $db = null;
@@ -66,7 +70,6 @@ function SaveItemToListInDB($data)
 
     $query->execute();
     $db = null;
-    header('Location:' . URL . "ToDoList/ShowList/" . $data[0]);
 }
 
 function deleteListItemFromDB($data, $ListID){
@@ -78,8 +81,7 @@ function deleteListItemFromDB($data, $ListID){
     $query->execute();
 
     $db = null;
-//    $_SESSION["msg"] = "Gelukt, Taak verwijderd";
-    header('Location:' . URL . "ToDoList/ShowList/" . $ListID);
+
 }
 
 function getListItem($ListItemID){
@@ -108,7 +110,6 @@ function SaveEditedItemToDB($data){
 
     $db = null;
 
-    header('Location:' . URL . "ToDoList/lists/");
 }
 
 function getListInfo($ListID){
@@ -132,7 +133,6 @@ function SaveEditedListToDB($data){
 
     $query->execute();
     $db = null;
-    header('Location:' . URL . "ToDoList/lists/");
 }
 
 function deleteListFromDatabase($listID){
@@ -154,10 +154,10 @@ function deleteListFromDatabase($listID){
         $query3->execute();
 
         $db = null;
-        header('Location:' . URL . "ToDoList/lists");
+        return true;
     } else {
         $db = null;
-        header('Location:' . URL . "ToDoList/UnAuthorized");
+        return false;
     }
 
 }

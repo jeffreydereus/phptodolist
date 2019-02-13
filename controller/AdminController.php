@@ -1,6 +1,8 @@
 <?php
 
 require(ROOT . "model/AdminModel.php");
+require(ROOT . "model/LogModel.php");
+
 
 function AdminUserView(){
     render("admins/AdminUsrView");
@@ -21,5 +23,17 @@ function EditRole($UUID){
 
 function SaveChangedRole($UUID){
     $data = array($UUID, $_POST["Role"]);
-    SaveChangedRoleToDB($data);
+    try {
+        SaveChangedRoleToDB($data);
+        AddLog("U","Admin/SaveChangedRole", null);
+        header('Location:' . URL . "admin/AdminUserView");
+    } catch (Exception $Ex){
+        AddErrorLog("I","Admin/SaveChangedRole", null, $Ex);
+    }
+}
+
+function LogView(){
+    render('admins/LogView', array(
+        'logs' => GetLogs()
+    ));
 }

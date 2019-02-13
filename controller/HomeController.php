@@ -17,4 +17,5 @@ function usrconfig()
 function SaveConfig()
 {
     SaveConfigToDB($_POST["UserColor"]);
+    header('Location:' . URL . "Home/index");
 }
